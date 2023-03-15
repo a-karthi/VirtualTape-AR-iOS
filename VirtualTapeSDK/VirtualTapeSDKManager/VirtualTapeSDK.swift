@@ -35,6 +35,8 @@ open class VirtualTapeSDK: CameraPermissionManager {
     /// Marks if the AR experience is available for restart.
     var isRestartAvailable = true
     
+    let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    
     public init(_ arContainerView: VirtualObjectARView) {
        
         self.sceneView = arContainerView
@@ -46,6 +48,8 @@ open class VirtualTapeSDK: CameraPermissionManager {
         super.init()
         
         self.virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, tapeSDK: self)
+        
+        impactFeedbackGenerator.prepare()
         
         sceneView.delegate = self
         
@@ -68,6 +72,11 @@ open class VirtualTapeSDK: CameraPermissionManager {
             //statusViewController.scheduleMessage("TRY MOVING LEFT OR RIGHT", inSeconds: 5.0, messageType: .focusSquare)
         }
         
+        if let pos = self.detectNodes(self.sceneView.center) {
+            print(pos.name ?? "")
+            return
+        }
+        
         // Perform ray casting only when ARKit tracking is in a good state.
         if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
             let query = sceneView.getRaycastQuery(),
@@ -88,6 +97,17 @@ open class VirtualTapeSDK: CameraPermissionManager {
             }
 //            addObjectButton.isHidden = true
         }
+    }
+    
+    // MARK: - Focus Square
+    func detectNodes(_ location: CGPoint) -> SCNNode? {
+        let hitTestResults = self.sceneView.hitTest(location)
+        guard let node = hitTestResults.first?.node as? VirtualObject else {return nil}
+        if focusSquare.position != node.position {
+            self.impactFeedbackGenerator.impactOccurred()
+            self.focusSquare.position = node.position
+        }
+        return node
     }
     
     public func resetTracking() {
@@ -122,6 +142,7 @@ extension VirtualTapeSDK: ARSCNViewDelegate, ARSessionDelegate {
         
         DispatchQueue.main.async {
             self.updateFocusSquare(isObjectVisible: isAnyObjectInView)
+           
         }
     }
     

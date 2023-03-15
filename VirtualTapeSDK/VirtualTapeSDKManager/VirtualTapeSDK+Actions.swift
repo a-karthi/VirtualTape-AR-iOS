@@ -20,12 +20,14 @@ extension VirtualTapeSDK: UIGestureRecognizerDelegate {
             let result = sceneView.castRay(for: query).first {
             newObject.mostRecentInitialPlacementResult = result
             newObject.raycastQuery = query
+            newObject.name = name
             newObject.nameIdentifier = name
         } else {
             newObject.mostRecentInitialPlacementResult = nil
             newObject.raycastQuery = nil
         }
         self.virtualObjectSelectionViewController(didSelectObject: newObject)
+        impactFeedbackGenerator.impactOccurred()
     }
     
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
