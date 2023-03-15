@@ -64,29 +64,10 @@ enum LineType {
     case axis
     
     var color: UIColor {
-        switch self {
-        case .distance:
-            return .white
-        case .axis:
-            return .yellow
-        }
+        return .white
     }
     
     var radius: CGFloat {
-        switch self {
-        case .distance:
-            return 0.005
-        case .axis:
-            return 0.0008
-        }
-    }
-    
-    var initialHeight: CGFloat {
-        switch self {
-        case .distance:
-            return 0.0
-        case .axis:
-            return 10.0
-        }
+        return 0.003
     }
 }

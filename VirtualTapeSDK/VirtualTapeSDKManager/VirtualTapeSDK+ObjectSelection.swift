@@ -48,7 +48,18 @@ extension VirtualTapeSDK {
             firstline.transform = SCNMatrix4MakeTranslation(0.0, height / 2.0, 0.0) * transform
             sceneView.scene.rootNode.addChildNode(firstline)
             virtualObjectLoader.lineNodes.append(firstline)
+            let distance = lastNode.position.distanceWithZaxis(to: previousNode.position)
+            let widthCm = distance * 100
+            self.createDistanceLabel(start: previousNode, end: lastNode, distance: widthCm)
         }
+    }
+    
+    private func createDistanceLabel(start: SCNNode, end: SCNNode, distance: Float) {
+        let formattedDistance = String(format: "%.2f", distance)
+        let textNode = TextNode(text: "\(formattedDistance) cm", textSize: 25, colour: .yellow, start: start, end: end)
+        textNode.placeBetweenNodes(start, and: end)
+        self.sceneView.scene.rootNode.addChildNode(textNode)
+        virtualObjectLoader.distanceLabelNodes.append(textNode)
     }
     
     // - Tag: GetTrackedRaycast

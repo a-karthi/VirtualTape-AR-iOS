@@ -13,13 +13,13 @@ import ARKit
 */
 public class VirtualObjectLoader {
     
-    public var counter = 1
-    
     public var virtualObjectAnchors = [ARAnchor]()
     
     public var dotObjects = [VirtualObject]()
     
     public var lineNodes = [LineNode]()
+    
+    public var distanceLabelNodes = [TextNode]()
     
     private(set) var isLoading = false
     
@@ -43,8 +43,6 @@ public class VirtualObjectLoader {
     // MARK: - Removing Objects
     
     func removeAllVirtualObjects() {
-        
-        self.counter = 1
         // Reverse the indices so we don't trample over indices as objects are removed.
         for index in dotObjects.indices.reversed() {
             removeVirtualObject(at: index)
@@ -55,6 +53,13 @@ public class VirtualObjectLoader {
         // Reverse the indices so we don't trample over indices as objects are removed.
         for index in lineNodes.indices.reversed() {
             removeLineNode(at: index)
+        }
+    }
+    
+    func removeAllTextNodes() {
+        // Reverse the indices so we don't trample over indices as objects are removed.
+        for index in distanceLabelNodes.indices.reversed() {
+            removeTextNode(at: index)
         }
     }
 
@@ -79,6 +84,16 @@ public class VirtualObjectLoader {
         lineNodes[index].removeFromParentNode()
         // Recoup resources allocated by the object.
         lineNodes.remove(at: index)
+    
+    }
+    
+    func removeTextNode(at index: Int) {
+        guard distanceLabelNodes.indices.contains(index) else { return }
+        
+        // Remove the visual node from the scene graph.
+        distanceLabelNodes[index].removeFromParentNode()
+        // Recoup resources allocated by the object.
+        distanceLabelNodes.remove(at: index)
     
     }
 }

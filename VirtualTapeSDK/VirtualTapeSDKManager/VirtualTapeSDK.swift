@@ -101,8 +101,6 @@ open class VirtualTapeSDK: CameraPermissionManager {
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
         print("FIND A SURFACE TO PLACE AN OBJECT")
-        
-//        statusViewController.scheduleMessage("FIND A SURFACE TO PLACE AN OBJECT", inSeconds: 7.5, messageType: .planeEstimation)
     }
     
     public func pauseARSession() {

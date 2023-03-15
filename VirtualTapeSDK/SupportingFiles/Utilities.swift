@@ -234,3 +234,15 @@ extension UIViewController {
     }
     
 }
+
+
+extension SCNNode {
+    func placeBetweenNodes(_ nodeA: SCNNode, and nodeB: SCNNode) {
+        let minPosition = nodeA.position
+        let maxPosition = nodeB.position
+        let x = ((maxPosition.x + minPosition.x)/2.0)
+        let y = (maxPosition.y + minPosition.y)/2.0 + 0.01
+        let z = (maxPosition.z + minPosition.z)/2.0
+        self.position =  SCNVector3(x, y, z)
+    }
+}

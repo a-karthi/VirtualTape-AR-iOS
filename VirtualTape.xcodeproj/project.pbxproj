@@ -32,6 +32,7 @@
 		CA02898529C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898029C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift */; };
 		CA02898629C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898129C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift */; };
 		CA02898829C1A4F200A57911 /* SphereNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898729C1A4F200A57911 /* SphereNode.swift */; };
+		CA02898A29C1D0AE00A57911 /* TextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898929C1D0AE00A57911 /* TextNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		CA02898029C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VirtualTapeSDK+ObjectSelection.swift"; sourceTree = "<group>"; };
 		CA02898129C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VirtualTapeSDK+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		CA02898729C1A4F200A57911 /* SphereNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SphereNode.swift; sourceTree = "<group>"; };
+		CA02898929C1D0AE00A57911 /* TextNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		CA02896029C19F8A00A57911 /* VirtualObject+Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				CA02898929C1D0AE00A57911 /* TextNode.swift */,
 				CA02896129C19F8A00A57911 /* VirtualObjectInteraction.swift */,
 				CA02896229C19F8A00A57911 /* VirtualObjectLoader.swift */,
 				CA02896429C19F8A00A57911 /* VirtualObjectARView.swift */,
@@ -354,6 +357,7 @@
 				CA02898629C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift in Sources */,
 				CA02892629C19DFC00A57911 /* SceneDelegate.swift in Sources */,
 				CA02898529C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift in Sources */,
+				CA02898A29C1D0AE00A57911 /* TextNode.swift in Sources */,
 				CA02897129C19F8A00A57911 /* Utilities.swift in Sources */,
 				CA02897229C19F8A00A57911 /* CameraPermissionManager.swift in Sources */,
 				CA02897A29C19F8A00A57911 /* FocusSquareSegment.swift in Sources */,
