@@ -9,13 +9,29 @@
 /* Begin PBXBuildFile section */
 		CA02892429C19DFC00A57911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02892329C19DFC00A57911 /* AppDelegate.swift */; };
 		CA02892629C19DFC00A57911 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02892529C19DFC00A57911 /* SceneDelegate.swift */; };
-		CA02892829C19DFC00A57911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02892729C19DFC00A57911 /* ViewController.swift */; };
+		CA02892829C19DFC00A57911 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02892729C19DFC00A57911 /* HomeViewController.swift */; };
 		CA02892B29C19DFC00A57911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA02892929C19DFC00A57911 /* Main.storyboard */; };
 		CA02892D29C19DFF00A57911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA02892C29C19DFF00A57911 /* Assets.xcassets */; };
 		CA02893029C19DFF00A57911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA02892E29C19DFF00A57911 /* LaunchScreen.storyboard */; };
 		CA02893B29C19DFF00A57911 /* VirtualTapeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02893A29C19DFF00A57911 /* VirtualTapeTests.swift */; };
 		CA02894529C19DFF00A57911 /* VirtualTapeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02894429C19DFF00A57911 /* VirtualTapeUITests.swift */; };
 		CA02894729C19DFF00A57911 /* VirtualTapeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02894629C19DFF00A57911 /* VirtualTapeUITestsLaunchTests.swift */; };
+		CA02897129C19F8A00A57911 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02895D29C19F8A00A57911 /* Utilities.swift */; };
+		CA02897229C19F8A00A57911 /* CameraPermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02895E29C19F8A00A57911 /* CameraPermissionManager.swift */; };
+		CA02897329C19F8A00A57911 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02895F29C19F8A00A57911 /* ThresholdPanGesture.swift */; };
+		CA02897429C19F8A00A57911 /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896129C19F8A00A57911 /* VirtualObjectInteraction.swift */; };
+		CA02897529C19F8A00A57911 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896229C19F8A00A57911 /* VirtualObjectLoader.swift */; };
+		CA02897729C19F8A00A57911 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896429C19F8A00A57911 /* VirtualObjectARView.swift */; };
+		CA02897829C19F8A00A57911 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896529C19F8A00A57911 /* VirtualObject.swift */; };
+		CA02897929C19F8A00A57911 /* LineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896629C19F8A00A57911 /* LineNode.swift */; };
+		CA02897A29C19F8A00A57911 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896829C19F8A00A57911 /* FocusSquareSegment.swift */; };
+		CA02897B29C19F8A00A57911 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02896929C19F8A00A57911 /* FocusSquare.swift */; };
+		CA02898229C1A42C00A57911 /* VirtualTapeSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02897D29C1A42C00A57911 /* VirtualTapeSDK.swift */; };
+		CA02898329C1A42C00A57911 /* VirtualTapeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02897E29C1A42C00A57911 /* VirtualTapeDelegate.swift */; };
+		CA02898429C1A42C00A57911 /* VirtualTapeSDK+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02897F29C1A42C00A57911 /* VirtualTapeSDK+Actions.swift */; };
+		CA02898529C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898029C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift */; };
+		CA02898629C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898129C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift */; };
+		CA02898829C1A4F200A57911 /* SphereNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA02898729C1A4F200A57911 /* SphereNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +55,7 @@
 		CA02892029C19DFC00A57911 /* VirtualTape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA02892329C19DFC00A57911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA02892529C19DFC00A57911 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA02892729C19DFC00A57911 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA02892729C19DFC00A57911 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CA02892A29C19DFC00A57911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA02892C29C19DFF00A57911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA02892F29C19DFF00A57911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +65,22 @@
 		CA02894029C19DFF00A57911 /* VirtualTapeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualTapeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA02894429C19DFF00A57911 /* VirtualTapeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTapeUITests.swift; sourceTree = "<group>"; };
 		CA02894629C19DFF00A57911 /* VirtualTapeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTapeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CA02895D29C19F8A00A57911 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		CA02895E29C19F8A00A57911 /* CameraPermissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionManager.swift; sourceTree = "<group>"; };
+		CA02895F29C19F8A00A57911 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		CA02896129C19F8A00A57911 /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
+		CA02896229C19F8A00A57911 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
+		CA02896429C19F8A00A57911 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
+		CA02896529C19F8A00A57911 /* VirtualObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		CA02896629C19F8A00A57911 /* LineNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNode.swift; sourceTree = "<group>"; };
+		CA02896829C19F8A00A57911 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		CA02896929C19F8A00A57911 /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
+		CA02897D29C1A42C00A57911 /* VirtualTapeSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualTapeSDK.swift; sourceTree = "<group>"; };
+		CA02897E29C1A42C00A57911 /* VirtualTapeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualTapeDelegate.swift; sourceTree = "<group>"; };
+		CA02897F29C1A42C00A57911 /* VirtualTapeSDK+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VirtualTapeSDK+Actions.swift"; sourceTree = "<group>"; };
+		CA02898029C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VirtualTapeSDK+ObjectSelection.swift"; sourceTree = "<group>"; };
+		CA02898129C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VirtualTapeSDK+CoachingOverlay.swift"; sourceTree = "<group>"; };
+		CA02898729C1A4F200A57911 /* SphereNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SphereNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				CA02892229C19DFC00A57911 /* VirtualTape */,
+				CA02895529C19F8A00A57911 /* VirtualTapeSDK */,
 				CA02893929C19DFF00A57911 /* VirtualTapeTests */,
 				CA02894329C19DFF00A57911 /* VirtualTapeUITests */,
 				CA02892129C19DFC00A57911 /* Products */,
@@ -101,7 +134,7 @@
 			children = (
 				CA02892329C19DFC00A57911 /* AppDelegate.swift */,
 				CA02892529C19DFC00A57911 /* SceneDelegate.swift */,
-				CA02892729C19DFC00A57911 /* ViewController.swift */,
+				CA02892729C19DFC00A57911 /* HomeViewController.swift */,
 				CA02892929C19DFC00A57911 /* Main.storyboard */,
 				CA02892C29C19DFF00A57911 /* Assets.xcassets */,
 				CA02892E29C19DFF00A57911 /* LaunchScreen.storyboard */,
@@ -125,6 +158,61 @@
 				CA02894629C19DFF00A57911 /* VirtualTapeUITestsLaunchTests.swift */,
 			);
 			path = VirtualTapeUITests;
+			sourceTree = "<group>";
+		};
+		CA02895529C19F8A00A57911 /* VirtualTapeSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CA02895629C19F8A00A57911 /* VirtualTapeSDKManager */,
+				CA02895C29C19F8A00A57911 /* SupportingFiles */,
+				CA02896029C19F8A00A57911 /* VirtualObject+Nodes */,
+				CA02896729C19F8A00A57911 /* FocusSquare */,
+			);
+			path = VirtualTapeSDK;
+			sourceTree = "<group>";
+		};
+		CA02895629C19F8A00A57911 /* VirtualTapeSDKManager */ = {
+			isa = PBXGroup;
+			children = (
+				CA02897D29C1A42C00A57911 /* VirtualTapeSDK.swift */,
+				CA02897F29C1A42C00A57911 /* VirtualTapeSDK+Actions.swift */,
+				CA02898129C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift */,
+				CA02898029C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift */,
+				CA02897E29C1A42C00A57911 /* VirtualTapeDelegate.swift */,
+			);
+			path = VirtualTapeSDKManager;
+			sourceTree = "<group>";
+		};
+		CA02895C29C19F8A00A57911 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CA02895D29C19F8A00A57911 /* Utilities.swift */,
+				CA02895E29C19F8A00A57911 /* CameraPermissionManager.swift */,
+				CA02895F29C19F8A00A57911 /* ThresholdPanGesture.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		CA02896029C19F8A00A57911 /* VirtualObject+Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				CA02896129C19F8A00A57911 /* VirtualObjectInteraction.swift */,
+				CA02896229C19F8A00A57911 /* VirtualObjectLoader.swift */,
+				CA02896429C19F8A00A57911 /* VirtualObjectARView.swift */,
+				CA02896529C19F8A00A57911 /* VirtualObject.swift */,
+				CA02898729C1A4F200A57911 /* SphereNode.swift */,
+				CA02896629C19F8A00A57911 /* LineNode.swift */,
+			);
+			path = "VirtualObject+Nodes";
+			sourceTree = "<group>";
+		};
+		CA02896729C19F8A00A57911 /* FocusSquare */ = {
+			isa = PBXGroup;
+			children = (
+				CA02896829C19F8A00A57911 /* FocusSquareSegment.swift */,
+				CA02896929C19F8A00A57911 /* FocusSquare.swift */,
+			);
+			path = FocusSquare;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +346,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA02892829C19DFC00A57911 /* ViewController.swift in Sources */,
+				CA02897529C19F8A00A57911 /* VirtualObjectLoader.swift in Sources */,
+				CA02897929C19F8A00A57911 /* LineNode.swift in Sources */,
+				CA02892829C19DFC00A57911 /* HomeViewController.swift in Sources */,
+				CA02897B29C19F8A00A57911 /* FocusSquare.swift in Sources */,
 				CA02892429C19DFC00A57911 /* AppDelegate.swift in Sources */,
+				CA02898629C1A42C00A57911 /* VirtualTapeSDK+CoachingOverlay.swift in Sources */,
 				CA02892629C19DFC00A57911 /* SceneDelegate.swift in Sources */,
+				CA02898529C1A42C00A57911 /* VirtualTapeSDK+ObjectSelection.swift in Sources */,
+				CA02897129C19F8A00A57911 /* Utilities.swift in Sources */,
+				CA02897229C19F8A00A57911 /* CameraPermissionManager.swift in Sources */,
+				CA02897A29C19F8A00A57911 /* FocusSquareSegment.swift in Sources */,
+				CA02897829C19F8A00A57911 /* VirtualObject.swift in Sources */,
+				CA02898429C1A42C00A57911 /* VirtualTapeSDK+Actions.swift in Sources */,
+				CA02898229C1A42C00A57911 /* VirtualTapeSDK.swift in Sources */,
+				CA02897729C19F8A00A57911 /* VirtualObjectARView.swift in Sources */,
+				CA02898829C1A4F200A57911 /* SphereNode.swift in Sources */,
+				CA02897329C19F8A00A57911 /* ThresholdPanGesture.swift in Sources */,
+				CA02897429C19F8A00A57911 /* VirtualObjectInteraction.swift in Sources */,
+				CA02898329C1A42C00A57911 /* VirtualTapeDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
