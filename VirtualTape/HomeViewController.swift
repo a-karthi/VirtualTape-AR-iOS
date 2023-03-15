@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var addObjectButton: UIButton!
     
+    let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+    
+    
     var pathIterator = 1
     
     private lazy var tapeSDKManager = VirtualTapeSDK(arContainer)
@@ -28,6 +31,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        impactFeedbackGenerator.prepare()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +60,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addButtonAction(_ sender:Any) {
+        impactFeedbackGenerator.impactOccurred()
         let name = "Dot-Node-\(pathIterator)"
         tapeSDKManager.addVirtualObject(name: name)
         pathIterator += 1
