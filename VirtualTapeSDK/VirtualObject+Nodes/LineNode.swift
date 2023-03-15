@@ -21,6 +21,7 @@ public class LineNode: SCNNode {
         super.init()
         
         geometry = cylinderGeometry
+        
     }
     
     required init?(coder: NSCoder) {

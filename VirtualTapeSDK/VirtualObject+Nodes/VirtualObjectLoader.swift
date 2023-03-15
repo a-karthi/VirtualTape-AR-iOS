@@ -19,6 +19,8 @@ public class VirtualObjectLoader {
     
     public var lineNodes = [LineNode]()
     
+    public var connectingLine = [LineNode]()
+    
     public var distanceLabelNodes = [TextNode]()
     
     private(set) var isLoading = false

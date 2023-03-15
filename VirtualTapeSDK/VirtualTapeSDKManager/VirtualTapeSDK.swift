@@ -37,6 +37,13 @@ open class VirtualTapeSDK: CameraPermissionManager {
     
     let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     
+    private lazy var realTimeLine: LineNode = {
+        let line = LineFactory.createMeasurementLine()
+        line.update(with: .stripes)
+        line.isHidden = true
+        return line
+    }()
+    
     public init(_ arContainerView: VirtualObjectARView) {
        
         self.sceneView = arContainerView
@@ -101,13 +108,41 @@ open class VirtualTapeSDK: CameraPermissionManager {
     
     // MARK: - Focus Square
     func detectNodes(_ location: CGPoint) -> SCNNode? {
-        let hitTestResults = self.sceneView.hitTest(location)
-        guard let node = hitTestResults.first?.node as? VirtualObject else {return nil}
-        if focusSquare.position != node.position {
+        //let hitTestResults = self.sceneView.hitTest(location)
+        let hitTestResults = sceneView.hitTest(location, options: [
+            SCNHitTestOption.searchMode: SCNHitTestSearchMode.all.rawValue,
+            SCNHitTestOption.ignoreHiddenNodes: false,
+            SCNHitTestOption.ignoreChildNodes: false
+        ])
+        let radius: Float = 0.05
+        let nodes = hitTestResults.compactMap({$0.node as? VirtualObject})
+        guard let nearestNode = nodes.filter({$0.position.distance(to: focusSquare.position) < radius}).first else {return nil}
+        let distance = nearestNode.position.distance(to: focusSquare.position)
+        print(distance)
+        if focusSquare.position != nearestNode.position {
             self.impactFeedbackGenerator.impactOccurred()
-            self.focusSquare.position = node.position
+            self.focusSquare.position = nearestNode.position
         }
-        return node
+        return nearestNode
+    }
+    
+    func updateRealTimeLine(_ startPoint: SCNVector3 , _ endPoint: SCNVector3) {
+            self.realTimeLine.isHidden = false
+            let lookAt = endPoint - startPoint
+            let height = lookAt.length()
+            let y = lookAt.normalized()
+            let up = lookAt.cross(vector: endPoint).normalized()
+            let x = y.cross(vector: up).normalized()
+            let z = x.cross(vector: y).normalized()
+            let transform = SCNMatrix4(x: x, y: y, z: z, w: startPoint)
+            realTimeLine.cylinderGeometry.height = CGFloat(height)
+            realTimeLine.transform = SCNMatrix4MakeTranslation(0.0, height / 2.0, 0.0) * transform
+            sceneView.scene.rootNode.addChildNode(realTimeLine)
+    }
+    
+    func hideRealTimeLine() {
+        self.realTimeLine.isHidden = true
+        self.realTimeLine.removeFromParentNode()
     }
     
     public func resetTracking() {
@@ -142,7 +177,10 @@ extension VirtualTapeSDK: ARSCNViewDelegate, ARSessionDelegate {
         
         DispatchQueue.main.async {
             self.updateFocusSquare(isObjectVisible: isAnyObjectInView)
-           
+            if self.virtualObjectLoader.dotObjects.count % 2 != 0 {
+                guard let last = self.virtualObjectLoader.dotObjects.last else {return}
+                self.updateRealTimeLine(last.position, self.focusSquare.physicsBody?.centerOfMassOffset ?? self.focusSquare.position)
+            }
         }
     }
     
@@ -158,12 +196,12 @@ extension VirtualTapeSDK: ARSCNViewDelegate, ARSessionDelegate {
     }
     
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-//        updateQueue.async {
-//            if let objectAtAnchor = self.virtualObjectLoader.loadedObjects.first(where: { $0.anchor == anchor }) {
-//                objectAtAnchor.simdPosition = anchor.transform.translation
-//                objectAtAnchor.anchor = anchor
-//            }
-//        }
+        updateQueue.async {
+            if let objectAtAnchor = self.virtualObjectLoader.dotObjects.first(where: { $0.anchor == anchor }) {
+                objectAtAnchor.simdPosition = anchor.transform.translation
+                objectAtAnchor.anchor = anchor
+            }
+        }
     }
     
     /// - Tag: ShowVirtualContent

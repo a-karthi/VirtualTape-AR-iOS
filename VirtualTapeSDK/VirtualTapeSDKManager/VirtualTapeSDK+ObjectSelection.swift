@@ -31,7 +31,7 @@ extension VirtualTapeSDK {
 
     func connectObjects() {
         let objects = virtualObjectLoader.dotObjects
-        if objects.count > 1 {
+        if objects.count % 2 == 0 {
             guard let lastNode = objects.last else {return}
             let previousNode = objects[objects.count - 2]
             let firstline: LineNode = LineFactory.createMeasurementLine()
@@ -46,6 +46,7 @@ extension VirtualTapeSDK {
             let transform = SCNMatrix4(x: x, y: y, z: z, w: previousNode.position)
             firstline.cylinderGeometry.height = CGFloat(height)
             firstline.transform = SCNMatrix4MakeTranslation(0.0, height / 2.0, 0.0) * transform
+            self.hideRealTimeLine()
             sceneView.scene.rootNode.addChildNode(firstline)
             virtualObjectLoader.lineNodes.append(firstline)
             let distance = lastNode.position.distanceWithZaxis(to: previousNode.position)

@@ -49,6 +49,7 @@ extension VirtualTapeSDK: UIGestureRecognizerDelegate {
         virtualObjectLoader.removeAllVirtualObjects()
         virtualObjectLoader.removeAllLineNodes()
         virtualObjectLoader.removeAllTextNodes()
+        self.hideRealTimeLine()
         //addObjectButton.setImage(#imageLiteral(resourceName: "add"), for: [])
         //addObjectButton.setImage(#imageLiteral(resourceName: "addPressed"), for: [.highlighted])
 
